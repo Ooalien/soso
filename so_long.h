@@ -6,7 +6,7 @@
 /*   By: abayar <abayar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 03:30:57 by abayar            #+#    #+#             */
-/*   Updated: 2021/12/15 17:32:27 by abayar           ###   ########.fr       */
+/*   Updated: 2022/01/03 15:47:16 by abayar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,10 @@ typedef struct s_data {
 	int		yi;
 	int		fd;
 }	t_data;
+
+int	check_error_wall(t_data *data, char **s);
+int	check_size_map(t_data *data, char **s);
+int check_char(char **s);
+
 
 #endif

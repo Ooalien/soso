@@ -6,11 +6,11 @@
 #    By: abayar <abayar@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 17:19:00 by abayar            #+#    #+#              #
-#    Updated: 2021/12/15 17:37:57 by abayar           ###   ########.fr        #
+#    Updated: 2021/12/23 16:13:12 by abayar           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = so_long.c get_next_line.c get_next_line_utils.c 
+SRC = so_long.c get_next_line.c get_next_line_utils.c so_long_utils.c
 
 OBJ = ${SRC:.c=.o}
 

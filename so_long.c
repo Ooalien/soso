@@ -6,7 +6,7 @@
 /*   By: abayar <abayar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 03:20:17 by abayar            #+#    #+#             */
-/*   Updated: 2021/12/15 22:20:21 by abayar           ###   ########.fr       */
+/*   Updated: 2022/01/04 10:49:20 by abayar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	**read_map(t_data *data)
 		data->s[l] = get_next_line(data->fd);
 		l++;
 	}
-	data->cmap = ft_strlen(data->s[1]);
+	data->cmap = ft_strlen(data->s[1]) - 1;
 	data->s[l] = 0;
 	return (data->s);
 }
@@ -178,13 +178,11 @@ int	key_hook(int keycode, t_data *vars)
 	return (0);
 }
 
-int	destroy(int keycode, t_data *data)
+int	destroy(t_data *data)
 {
-	if (keycode == 17)
-	{
-		mlx_destroy_window(data->mlx, data->win);
-		exit (0);
-	}
+
+	mlx_destroy_window(data->mlx, data->win);
+	exit (0);
 	return 0;
 }
 
@@ -205,10 +203,13 @@ int main()
 	img.pathe = "./bab.xpm";
 	img.pathee = "./rsz_biban.xpm";
 	s = read_map(&img);
-	img.win = mlx_new_window(img.mlx, (img.cmap - 1) * 100, img.lmap * 100, "test");
+	check_size_map(&img, s);
+	check_error_wall(&img, s);
+	check_char(s);
+	img.win = mlx_new_window(img.mlx, (img.cmap) * 100, img.lmap * 100, "test");
 	pars_map(s,&img);
 	mlx_key_hook(img.win, key_hook, &img);
-	mlx_hook(img.win, 17, 1L<<5, destroy, &img);
+	mlx_hook(img.win, 17, 0, destroy, &img);
 	mlx_loop(img.mlx);
 	return (0);
 }
