@@ -6,11 +6,11 @@
 #    By: abayar <abayar@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 17:19:00 by abayar            #+#    #+#              #
-#    Updated: 2021/12/23 16:13:12 by abayar           ###   ########.fr        #
+#    Updated: 2022/01/05 15:03:55 by abayar           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = so_long.c get_next_line.c get_next_line_utils.c so_long_utils.c
+SRC = so_long.c get_next_line.c get_next_line_utils.c so_long_errors.c so_long_help.c map.c
 
 OBJ = ${SRC:.c=.o}
 
@@ -30,8 +30,6 @@ ${NAME}	: ${OBJ}
 
 exec	:
 	gcc so_long.c so_long.a -lmlx -framework OpenGL -framework AppKit
-	./a.out
-	rm a.out
 
 clean 	:
 	rm -f ${OBJ}
